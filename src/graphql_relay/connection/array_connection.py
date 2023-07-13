@@ -149,8 +149,8 @@ def connection_from_array_slice(
         pageInfo=page_info_type(
             startCursor=first_edge_cursor,
             endCursor=last_edge_cursor,
-            hasPreviousPage=isinstance(last, int) and start_offset > lower_bound,
-            hasNextPage=isinstance(first, int) and end_offset < upper_bound,
+            hasPreviousPage=start_offset > 0,
+            hasNextPage=end_offset < array_length,
         ),
     )
 
